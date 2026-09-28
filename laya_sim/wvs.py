@@ -101,6 +101,8 @@ def map_age_group(value):
 
 def profile_from_row(row, profile_id):
     income, income_score = map_income(row.get("X047_WVS7"))
+    if income_score is None:   # EVS rows carry income in X047E_EVS5 (same 1-10 scale)
+        income, income_score = map_income(row.get("X047E_EVS5"))
     stance = map_stance(row.get("E037"))
     try:
         weight = float(str(row.get("pwght", "")).replace(",", "."))
@@ -140,6 +142,24 @@ def load_profiles(path, country="792"):
     if not profiles:
         raise ValueError("no_rows_for_country")
     return profiles
+
+
+def load_all_countries(path):
+    """One pass over the file: {cntry code: (alpha code, [profiles])}."""
+    file_path = Path(path)
+    if not file_path.is_file():
+        raise ValueError("wvs_csv_not_found")
+    countries = {}
+    with file_path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        missing = [column for column in REQUIRED_COLUMNS if column not in (reader.fieldnames or [])]
+        if missing:
+            raise ValueError(f"missing_columns:{','.join(missing)}")
+        for row in reader:
+            code = str(row["cntry"]).strip()
+            name, profiles = countries.setdefault(code, (row.get("cntry_AN", code).strip(), []))
+            profiles.append(profile_from_row(row, len(profiles)))
+    return countries
 
 
 def data_quality(profiles):

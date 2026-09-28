@@ -1,6 +1,21 @@
 # laya-wvs-sim
 
-Agent-based opinion-dynamics simulation seeded from real World Values Survey respondents in Türkiye.
+**When money is tight, do people want the state to step in?** Survey evidence from 87 countries, plus an agent-based simulation seeded from real World Values Survey respondents.
+
+## Headline (Joint EVS/WVS 2017–2022, 87 countries)
+
+- In **62 of 87** countries, the most economically vulnerable third is significantly more likely to say "the government should take more responsibility to ensure everyone is provided for" (E037, 7–10). The pattern significantly reverses in **0** countries. The median gap is +8.8 pp.
+- The result is robust to splitting by household income alone: 68 of 87 significant, 0 reversed.
+- **Türkiye:** +12.9 pp (47% vs 34%), rank 17 of 87. The income-only gap is +14.9 pp [+10.4, +19.6].
+- Largest gaps: India, Slovakia, Tunisia, Canada, Czechia. No gap: Vietnam, Morocco, Kazakhstan, Ethiopia, China.
+- The simulation layer is a **weak result**. The expected ceiling effect points the right way, with a correlation of −0.28, but it separates from the placebo in only 9 of 87 countries. The model mechanism dominates the data structure.
+
+Report: `out/crossnational.html`. Reproduce: `python3 cross.py --csv /path/to/EVS_WVS_Joint_Csv_v5_0.csv` (~2.5 min).
+CIs in the descriptive layer come from a respondent bootstrap, so they reflect survey sampling error. The pattern is an association, not a causal effect.
+
+---
+
+## Single-country deep dive: Türkiye
 
 Honest framing: this does **not** predict how Turkish society behaves. Each crisis mechanism is an explicit assumption. The real survey data decides *who* an assumption hits and how hard. The experiment design (paired seeds, bootstrap CIs, sensitivity sweep, placebo) shows what follows from those assumptions and what does not.
 
