@@ -1,6 +1,8 @@
 # laya-wvs-sim
 
-**When money is tight, do people want the state to step in?** Survey evidence from 87 countries, plus an agent-based simulation seeded from real World Values Survey respondents.
+**When money is tight, do people want the state to step in?** Survey evidence from 87 countries, a test against real macroeconomic conditions, and an agent-based simulation seeded from real World Values Survey respondents.
+
+![Vulnerability gap across 87 countries and its (absent) link to national economic conditions](out/figure.png)
 
 ## Headline (Joint EVS/WVS 2017–2022, 87 countries)
 
@@ -8,9 +10,11 @@
 - The result is robust to splitting by household income alone: 68 of 87 significant, 0 reversed.
 - **Türkiye:** +12.9 pp (47% vs 34%), rank 17 of 87. The income-only gap is +14.9 pp [+10.4, +19.6].
 - Largest gaps: India, Slovakia, Tunisia, Canada, Czechia. No gap: Vietnam, Morocco, Kazakhstan, Ethiopia, China.
+- **The national economy does not explain the gap.** Set against World Bank data (average of the survey year and the two years before), the gap shows no detectable relationship with unemployment (Spearman r = +0.16 [−0.05, +0.38], p = 0.15), inflation (r = −0.14 [−0.36, +0.08], p = 0.22) or GDP growth (r = +0.01 [−0.21, +0.24], p = 0.96). Countries surveyed during the pandemic (2020+) do not differ either: +8.1 pp vs +9.2 pp, p = 0.38. This is a between-country comparison at one point in time; it cannot rule out that a country's gap moves during its own crisis.
 - The simulation layer is a **weak result**. The expected ceiling effect points the right way, with a correlation of −0.28, but it separates from the placebo in only 9 of 87 countries. The model mechanism dominates the data structure.
 
-Report: `out/crossnational.html`. Reproduce: `python3 cross.py --csv /path/to/EVS_WVS_Joint_Csv_v5_0.csv` (~2.5 min).
+Report: `out/crossnational.html`. Reproduce: `python3 cross.py --csv /path/to/EVS_WVS_Joint_Csv_v5_0.csv` (~2 min; add `--no-macro` to skip the World Bank step), then `python3 figure.py` for the shareable figure.
+World Bank series are fetched once from the public WDI API and cached in `out/worldbank.json`, so reruns are offline and identical.
 CIs in the descriptive layer come from a respondent bootstrap, so they reflect survey sampling error. The pattern is an association, not a causal effect.
 
 ---

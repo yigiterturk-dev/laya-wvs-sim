@@ -1,7 +1,10 @@
 """HTML report for the cross-national study (inline SVG, no external requests)."""
 
+import math
 from html import escape
 from statistics import correlation
+
+from .macro import PANDEMIC_FROM
 
 NAMES = {
     "AD": "Andorra", "AL": "Albania", "AM": "Armenia", "AR": "Argentina", "AT": "Austria", "AU": "Australia",
@@ -81,6 +84,65 @@ def _scatter(rows, focus="TR"):
     return "".join(out)
 
 
+def _symlog(v):
+    return math.copysign(math.log10(1 + abs(v)), v)
+
+
+def _macro_panel(joined, key, label, test, focus="TR", log=False):
+    """Gap (y) against one macro indicator (x). Log x for inflation's long tail."""
+    width, height, pad = 300, 250, 40
+    pts = [(j[key], j["gap"], j["name"]) for j in joined if j[key] is not None]
+    tx = _symlog if log else (lambda v: v)
+    xs, ys = [tx(p[0]) for p in pts], [p[1] for p in pts]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys + [0]), max(ys)
+    sx = lambda v: pad + (tx(v) - x0) / ((x1 - x0) or 1) * (width - pad - 12)
+    sy = lambda v: height - pad - (v - y0) / ((y1 - y0) or 1) * (height - pad - 48)
+    out = [f'<svg viewBox="0 0 {width} {height}" role="img" aria-label="Gap versus {escape(label)}">',
+           f'<text x="{pad}" y="16" font-weight="700">{escape(label)}</text>',
+           f'<text x="{pad}" y="30">Spearman r = {test["r"]:+.2f} [{test["low"]:+.2f}, {test["high"]:+.2f}], p = {test["p"]:.2f}</text>',
+           f'<line x1="{pad}" x2="{width - 12}" y1="{sy(0):.1f}" y2="{sy(0):.1f}" stroke="{GREY}" stroke-dasharray="4 4"/>']
+    for raw, gap, code in pts:
+        is_focus = code == focus
+        out.append(f'<circle cx="{sx(raw):.1f}" cy="{sy(gap):.1f}" r="{5.5 if is_focus else 3}" fill="{RED if is_focus else BLUE}" opacity="{1 if is_focus else 0.5}"><title>{escape(name(code))}: {raw:.1f}, {_pp(gap)} pp</title></circle>')
+    ticks = [v for v in (0, 10, 100, 1000) if x0 <= _symlog(v) <= x1] if log else [min(p[0] for p in pts), max(p[0] for p in pts)]
+    for v in ticks:
+        out.append(f'<text x="{sx(v):.1f}" y="{height - pad + 16}" text-anchor="middle">{v:.0f}</text>')
+    out.append(f'<text x="{pad - 5}" y="{sy(y1) + 4:.1f}" text-anchor="end">{_pp(y1)}</text><text x="{pad - 5}" y="{sy(0) + 4:.1f}" text-anchor="end">0</text></svg>')
+    return "".join(out)
+
+
+def _macro_section(macro):
+    if not macro:
+        return ""
+    t = macro["tests"]
+    panels = "".join(f'<div class=panel>{_macro_panel(macro["countries"], k, t[k]["label"], t[k], log=k == "inflation")}</div>'
+                     for k in ("unemployment", "inflation", "gdp_growth"))
+    pan = macro["pandemic"]
+    pan_text = (f'<p><strong>Pandemic fieldwork.</strong> Countries surveyed in {PANDEMIC_FROM} or later show a mean gap of {_pp(pan["b_mean"])} pp '
+                f'(n = {pan["n_b"]}) against {_pp(pan["a_mean"])} pp before (n = {pan["n_a"]}); permutation p = {pan["p"]:.2f}.</p>') if pan else ""
+    unmatched = ", ".join(name(c) for c in macro["unmatched"]) or "none"
+    null = [k for k in t if t[k]["low"] < 0 < t[k]["high"]]
+    bound = max(max(abs(t[k]["low"]), abs(t[k]["high"])) for k in t)
+    if len(null) == len(t):
+        verdict = "They do not."
+        detail = (f"None of the three indicators shows a detectable relationship with the gap: every confidence interval spans zero "
+                  f"and, across ~{t['unemployment']['n']} countries, the intervals exclude correlations stronger than about ±{bound:.2f}. "
+                  "The divide between the vulnerable and the secure looks like a stable feature of how people relate to the state, "
+                  "one that tracks a household's own position more than the country's business cycle.")
+    else:
+        hit = ", ".join(t[k]["label"].split(",")[0].lower() for k in t if k not in null)
+        verdict = "Partly."
+        detail = f"A detectable relationship appears for {escape(hit)}; the other indicators show none."
+    return f"""
+<h2>2. Does a bad national economy widen the gap?</h2>
+<p>The simulation below <em>assumes</em> a crisis. This section uses measured conditions instead. For each country the gap from section 1 is set against {macro['source']} data averaged over the survey year and the {macro['window_years'] - 1} years before it.
+If hard times widened the divide, countries surveyed under high unemployment, high inflation or weak growth should show bigger gaps.</p>
+<div class=grid3>{panels}</div>
+<p><strong>{verdict}</strong> {detail}</p>
+{pan_text}
+<p class=small>Rank correlations, because inflation is heavily skewed (x-axis on a log scale). p-values from 5,000 permutations, CIs from a country bootstrap. This is a between-country comparison at one point in time; it cannot rule out that a given country's gap moves during its own crisis. No World Bank match: {escape(unmatched)}.</p>"""
+
+
 def summarize(result, focus="TR"):
     rows = result["countries"]
     ranked = sorted(rows, key=lambda r: r["gradient"]["gap"], reverse=True)
@@ -104,7 +166,7 @@ def summarize(result, focus="TR"):
     }
 
 
-def build_html(result, source_name):
+def build_html(result, source_name, macro=None):
     s = summarize(result)
     t = s["focus"]
     g, gi, d = t["gradient"], t["gradient_income_only"], t["drift"]
@@ -118,6 +180,7 @@ main{{max-width:900px;margin:0 auto;padding:36px 20px 72px}}h1{{font-size:30px;l
 .stat{{border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px}}.stat b{{display:block;font-size:28px;line-height:1.1}}.stat span{{color:#6b7280;font-size:13px}}
 .panel{{border:1px solid #e5e7eb;border-radius:12px;padding:14px}}svg{{width:100%;height:auto;font-size:11px;fill:#374151}}
 .note{{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 16px}}.small{{color:#6b7280;font-size:13px}}code{{background:#f3f4f6;padding:1px 5px;border-radius:4px}}
+.grid3{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}}
 .key span{{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 5px 0 14px}}</style></head><body><main>
 <h1>When money is tight, do people want the state to step in?</h1>
 <p class=lede>Survey evidence from {s['n']} countries (Joint EVS/WVS 2017–2022), followed by a simulation of what that structure means for a crisis scenario.</p>
@@ -136,7 +199,8 @@ Each row shows how much more often the most vulnerable third answers 7–10 on E
 <p><strong>Robustness.</strong> Splitting by household income alone, instead of the composite score, still gives a significant positive gap in {s['income_positive']} of {s['n']} countries and a significant reversal in {s['income_negative']}.
 In Türkiye the income-only gap is {_pp(gi['gap'])} pp [{_pp(gi['low'])}, {_pp(gi['high'])}].</p>
 
-<h2>2. What that structure does in a simulated crisis</h2>
+{_macro_section(macro)}
+<h2>{3 if macro else 2}. What that structure does in a simulated crisis</h2>
 <p>Every country runs the same agent-based model: {design['agents']:,} agents sampled by survey weight, {design['rounds']} rounds, {len(design['seeds'])} seeds.
 The crisis assumption ("drift", strength {design['drift_strength']}) nudges economically vulnerable agents toward "government responsible".
 The same model then runs on a placebo in which every attribute is shuffled independently, which keeps each variable's distribution and removes who-is-who.
@@ -147,9 +211,9 @@ The <em>structure effect</em> is the real result minus the placebo result: the p
 In this model the mechanism, not the real data structure, drives most of the simulated shift.</p>
 <p>Türkiye: simulated shift {d['real']['mean']:+.3f} [{d['real']['low']:+.3f}, {d['real']['high']:+.3f}] vs placebo {d['placebo']['mean']:+.3f}; structure effect {d['structure']['mean']:+.3f} [{d['structure']['low']:+.3f}, {d['structure']['high']:+.3f}] (mean stance on a −1…+1 scale).</p>
 
-<h2>3. How to read this</h2>
+<h2>{4 if macro else 3}. How to read this</h2>
 <p class=note>Section 1 is a descriptive survey finding. It shows association, not cause: vulnerability does not necessarily <em>cause</em> the attitude.
-Section 2 is a model output. It is conditional on an assumed crisis mechanism and is not a forecast.</p>
+Section {3 if macro else 2} is a model output. It is conditional on an assumed crisis mechanism and is not a forecast.</p>
 <ul class=small><li>Excluded because stance or income coverage is below 80%: {escape(skipped)}.</li>
 <li>Vulnerability is a proxy, not measured crisis exposure. Income steps are self-placed and country-relative.</li>
 <li>Survey years differ by country (2017–2022), and some fieldwork fell during COVID-19.</li>

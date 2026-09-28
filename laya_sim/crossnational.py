@@ -91,7 +91,7 @@ def drift_structure(profiles, seeds, agents, rounds):
     }
 
 
-def run_crossnational(countries, seeds=tuple(range(1, 11)), agents=5000, rounds=10, model=True):
+def run_crossnational(countries, seeds=tuple(range(1, 11)), agents=5000, rounds=10, model=True, years=None):
     rows, skipped = [], []
     for code, (name, profiles) in sorted(countries.items()):
         if not eligible(profiles):
@@ -101,6 +101,9 @@ def run_crossnational(countries, seeds=tuple(range(1, 11)), agents=5000, rounds=
                "mean_vulnerability": mean(p.vulnerability for p in profiles),
                "gradient": gradient(profiles),
                "gradient_income_only": gradient(profiles, score=_income_only)}
+        if years and years.get(code):
+            # Most common fieldwork year; a few countries straddle New Year.
+            row["survey_year"] = years[code].most_common(1)[0][0]
         if model:
             row["drift"] = drift_structure(profiles, seeds, agents, rounds)
         rows.append(row)

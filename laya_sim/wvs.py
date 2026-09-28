@@ -144,8 +144,11 @@ def load_profiles(path, country="792"):
     return profiles
 
 
-def load_all_countries(path):
-    """One pass over the file: {cntry code: (alpha code, [profiles])}."""
+def load_all_countries(path, years=None):
+    """One pass over the file: {cntry code: (alpha code, [profiles])}.
+
+    If `years` is a dict, it is filled with {cntry code: Counter(fieldwork year)}.
+    """
     file_path = Path(path)
     if not file_path.is_file():
         raise ValueError("wvs_csv_not_found")
@@ -159,6 +162,8 @@ def load_all_countries(path):
             code = str(row["cntry"]).strip()
             name, profiles = countries.setdefault(code, (row.get("cntry_AN", code).strip(), []))
             profiles.append(profile_from_row(row, len(profiles)))
+            if years is not None and str(row.get("year", "")).strip().isdigit():
+                years.setdefault(code, Counter())[int(row["year"])] += 1
     return countries
 
 

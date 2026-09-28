@@ -40,6 +40,7 @@
     "n_top": 310,
     "n_bottom": 487
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.07908,
@@ -84,6 +85,7 @@
     "n_top": 322,
     "n_bottom": 738
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.05356,
@@ -128,6 +130,7 @@
     "n_top": 288,
     "n_bottom": 513
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.07238,
@@ -172,6 +175,7 @@
     "n_top": 1004,
     "n_bottom": 1404
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06442,
@@ -216,6 +220,7 @@
     "n_top": 210,
     "n_bottom": 539
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.0523,
@@ -260,6 +265,7 @@
     "n_top": 620,
     "n_bottom": 1459
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06618,
@@ -304,6 +310,7 @@
     "n_top": 359,
     "n_bottom": 687
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.0693,
@@ -348,6 +355,7 @@
     "n_top": 415,
     "n_bottom": 818
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.07153999999999999,
@@ -392,6 +400,7 @@
     "n_top": 392,
     "n_bottom": 496
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.0577,
@@ -436,6 +445,7 @@
     "n_top": 286,
     "n_bottom": 404
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.045899999999999996,
@@ -480,6 +490,7 @@
     "n_top": 260,
     "n_bottom": 424
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.03696000000000001,
@@ -524,6 +535,7 @@
     "n_top": 649,
     "n_bottom": 1135
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.0636,
@@ -568,6 +580,7 @@
     "n_top": 961,
     "n_bottom": 1241
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.06262,
@@ -612,6 +625,7 @@
     "n_top": 328,
     "n_bottom": 732
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06036,
@@ -656,6 +670,7 @@
     "n_top": 389,
     "n_bottom": 683
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06786,
@@ -700,6 +715,7 @@
     "n_top": 135,
     "n_bottom": 504
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.08195999999999999,
@@ -744,6 +760,7 @@
     "n_top": 327,
     "n_bottom": 385
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.06262,
@@ -788,6 +805,7 @@
     "n_top": 505,
     "n_bottom": 659
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.08018,
@@ -832,6 +850,7 @@
     "n_top": 656,
     "n_bottom": 810
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.053459999999999994,
@@ -876,6 +895,7 @@
     "n_top": 768,
     "n_bottom": 1619
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.05476,
@@ -920,6 +940,7 @@
     "n_top": 330,
     "n_bottom": 598
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.03690000000000003,
@@ -964,6 +985,7 @@
     "n_top": 81,
     "n_bottom": 990
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06232,
@@ -1008,6 +1030,7 @@
     "n_top": 291,
     "n_bottom": 350
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.05352,
@@ -1052,6 +1075,7 @@
     "n_top": 214,
     "n_bottom": 482
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.059840000000000004,
@@ -1096,6 +1120,7 @@
     "n_top": 500,
     "n_bottom": 769
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.07452,
@@ -1140,6 +1165,7 @@
     "n_top": 434,
     "n_bottom": 686
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.04334,
@@ -1184,6 +1210,7 @@
     "n_top": 411,
     "n_bottom": 620
    },
+   "survey_year": 2023,
    "drift": {
     "real": {
      "mean": 0.06387999999999999,
@@ -1228,6 +1255,7 @@
     "n_top": 576,
     "n_bottom": 804
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.05548,
@@ -1272,6 +1300,7 @@
     "n_top": 938,
     "n_bottom": 1607
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.05942,
@@ -1316,6 +1345,7 @@
     "n_top": 441,
     "n_bottom": 645
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06898,
@@ -1360,6 +1390,7 @@
     "n_top": 358,
     "n_bottom": 543
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.13486,
@@ -1404,6 +1435,7 @@
     "n_top": 206,
     "n_bottom": 476
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.04058,
@@ -1448,6 +1480,7 @@
     "n_top": 261,
     "n_bottom": 605
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.0571,
@@ -1492,6 +1525,7 @@
     "n_top": 352,
     "n_bottom": 480
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06907999999999999,
@@ -1536,6 +1570,7 @@
     "n_top": 320,
     "n_bottom": 565
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.03755999999999998,
@@ -1580,6 +1615,7 @@
     "n_top": 332,
     "n_bottom": 689
    },
+   "survey_year": 2021,
    "drift": {
     "real": {
      "mean": 0.06684000000000001,
@@ -1624,6 +1660,7 @@
     "n_top": 196,
     "n_bottom": 766
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.0667,
@@ -1668,6 +1705,7 @@
     "n_top": 323,
     "n_bottom": 850
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.03948,
@@ -1712,6 +1750,7 @@
     "n_top": 345,
     "n_bottom": 403
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.05698000000000001,
@@ -1756,6 +1795,7 @@
     "n_top": 310,
     "n_bottom": 449
    },
+   "survey_year": 2021,
    "drift": {
     "real": {
      "mean": 0.06784,
@@ -1800,6 +1840,7 @@
     "n_top": 288,
     "n_bottom": 474
    },
+   "survey_year": 2022,
    "drift": {
     "real": {
      "mean": 0.046200000000000005,
@@ -1844,6 +1885,7 @@
     "n_top": 380,
     "n_bottom": 489
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06860000000000001,
@@ -1888,6 +1930,7 @@
     "n_top": 322,
     "n_bottom": 373
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.07126,
@@ -1932,6 +1975,7 @@
     "n_top": 426,
     "n_bottom": 547
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06712,
@@ -1976,6 +2020,7 @@
     "n_top": 210,
     "n_bottom": 419
    },
+   "survey_year": 2021,
    "drift": {
     "real": {
      "mean": 0.04276,
@@ -2020,6 +2065,7 @@
     "n_top": 504,
     "n_bottom": 783
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.05848,
@@ -2064,6 +2110,7 @@
     "n_top": 419,
     "n_bottom": 900
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.0775,
@@ -2108,6 +2155,7 @@
     "n_top": 260,
     "n_bottom": 409
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.05312,
@@ -2152,6 +2200,7 @@
     "n_top": 330,
     "n_bottom": 410
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.05227999999999999,
@@ -2196,6 +2245,7 @@
     "n_top": 386,
     "n_bottom": 511
    },
+   "survey_year": 2021,
    "drift": {
     "real": {
      "mean": 0.058039999999999994,
@@ -2240,6 +2290,7 @@
     "n_top": 858,
     "n_bottom": 1350
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.07594000000000001,
@@ -2284,6 +2335,7 @@
     "n_top": 848,
     "n_bottom": 1526
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.06038,
@@ -2328,6 +2380,7 @@
     "n_top": 240,
     "n_bottom": 308
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06436,
@@ -2372,6 +2425,7 @@
     "n_top": 388,
     "n_bottom": 683
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.08472,
@@ -2416,6 +2470,7 @@
     "n_top": 214,
     "n_bottom": 572
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.04829999999999999,
@@ -2460,6 +2515,7 @@
     "n_top": 247,
     "n_bottom": 461
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06318,
@@ -2504,6 +2560,7 @@
     "n_top": 411,
     "n_bottom": 948
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06098,
@@ -2548,6 +2605,7 @@
     "n_top": 308,
     "n_bottom": 537
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06132,
@@ -2592,6 +2650,7 @@
     "n_top": 394,
     "n_bottom": 668
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.07804,
@@ -2636,6 +2695,7 @@
     "n_top": 251,
     "n_bottom": 451
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.06484,
@@ -2680,6 +2740,7 @@
     "n_top": 362,
     "n_bottom": 447
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06498,
@@ -2724,6 +2785,7 @@
     "n_top": 769,
     "n_bottom": 775
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06962,
@@ -2768,6 +2830,7 @@
     "n_top": 964,
     "n_bottom": 1333
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.0584,
@@ -2812,6 +2875,7 @@
     "n_top": 427,
     "n_bottom": 744
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.069,
@@ -2856,6 +2920,7 @@
     "n_top": 589,
     "n_bottom": 884
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.0636,
@@ -2900,6 +2965,7 @@
     "n_top": 322,
     "n_bottom": 608
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.05992000000000001,
@@ -2944,6 +3010,7 @@
     "n_top": 621,
     "n_bottom": 744
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06666,
@@ -2988,6 +3055,7 @@
     "n_top": 681,
     "n_bottom": 795
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.0582,
@@ -3032,6 +3100,7 @@
     "n_top": 335,
     "n_bottom": 432
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.0593,
@@ -3076,6 +3145,7 @@
     "n_top": 249,
     "n_bottom": 416
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.0718,
@@ -3120,6 +3190,7 @@
     "n_top": 368,
     "n_bottom": 457
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06001999999999999,
@@ -3164,6 +3235,7 @@
     "n_top": 358,
     "n_bottom": 445
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.058059999999999994,
@@ -3208,6 +3280,7 @@
     "n_top": 844,
     "n_bottom": 1002
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.07016,
@@ -3252,6 +3325,7 @@
     "n_top": 430,
     "n_bottom": 724
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.04494,
@@ -3296,6 +3370,7 @@
     "n_top": 235,
     "n_bottom": 578
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.06258,
@@ -3340,6 +3415,7 @@
     "n_top": 358,
     "n_bottom": 808
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.07046,
@@ -3384,6 +3460,7 @@
     "n_top": 353,
     "n_bottom": 410
    },
+   "survey_year": 2019,
    "drift": {
     "real": {
      "mean": 0.04306,
@@ -3428,6 +3505,7 @@
     "n_top": 721,
     "n_bottom": 1074
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.06376,
@@ -3472,6 +3550,7 @@
     "n_top": 336,
     "n_bottom": 535
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.09274,
@@ -3516,6 +3595,7 @@
     "n_top": 667,
     "n_bottom": 1246
    },
+   "survey_year": 2020,
    "drift": {
     "real": {
      "mean": 0.062,
@@ -3560,6 +3640,7 @@
     "n_top": 346,
     "n_bottom": 449
    },
+   "survey_year": 2018,
    "drift": {
     "real": {
      "mean": 0.019999999999999997,
@@ -3604,6 +3685,7 @@
     "n_top": 883,
     "n_bottom": 1332
    },
+   "survey_year": 2022,
    "drift": {
     "real": {
      "mean": 0.06138,
@@ -3648,6 +3730,7 @@
     "n_top": 517,
     "n_bottom": 1045
    },
+   "survey_year": 2017,
    "drift": {
     "real": {
      "mean": 0.0613,
@@ -3692,6 +3775,7 @@
     "n_top": 223,
     "n_bottom": 384
    },
+   "survey_year": 2022,
    "drift": {
     "real": {
      "mean": 0.05316,
@@ -3736,6 +3820,7 @@
     "n_top": 296,
     "n_bottom": 581
    },
+   "survey_year": 2022,
    "drift": {
     "real": {
      "mean": 0.0663,
@@ -3780,6 +3865,7 @@
     "n_top": 395,
     "n_bottom": 635
    },
+   "survey_year": 2021,
    "drift": {
     "real": {
      "mean": 0.0812,
@@ -3824,6 +3910,7 @@
     "n_top": 68,
     "n_bottom": 148
    },
+   "survey_year": 2022,
    "drift": {
     "real": {
      "mean": 0.04874,
